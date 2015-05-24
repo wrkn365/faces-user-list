@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bean;
 
 import com.mysql.jdbc.Connection;
@@ -17,7 +14,7 @@ import model.user;
 
 /**
  *
- * @author Jon Janet 6701505
+ * @author Jon Janet 
  */
 @ManagedBean
 @RequestScoped
