@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>DFM User Data</title>
+    </h:head>
+    <h:body>
+        <center><h2>DFM Users</h2></center>
+        <h:panelGrid columns="2" cellspacing ="50">           
+        <h:form id="userForm">
+            <br/>
+            <h3>Add New User:</h3>
+
+            All boxes must be completed.
+            <br/>
+            <br/>
+            <h:panelGrid columns="2">
+            User Name: <h:inputText id ="user_name" value ="#{indexBean.user_name}" 
+                                     validatorMessage=" user name Required ">
+                <f:validateLength minimum="1" maximum="20"/>
+            </h:inputText><br/> 
+
+            Granted by: <h:inputText id ="granted_by" value ="#{indexBean.granted_by}" 
+                                     validatorMessage=" grantor Required ">
+                <f:validateLength minimum ="1" maximum="20"/>
+            </h:inputText><br/>
+
+            User's Role: <h:inputText id ="users_role" value ="#{indexBean.users_role}" 
+                                    validatorMessage=" role Required">
+                <f:validateLength minimum ="1" maximum="20"/>
+            </h:inputText><br/>
+
+            Date Requested: <h:inputText id ="request_date" value ="#{indexBean.request_date}" 
+                                     validatorMessage=" request date Required">
+                <f:validateLength minimum="2" maximum="20"/>
+            </h:inputText><br/>
+          
+            Password: <h:inputText id ="password" value ="#{indexBean.password}" 
+                                      validatorMessage=" password Required">
+                <f:validateLength minimum="2" maximum="20"/>            
+            </h:inputText><br/>
+            
+            Work Area: <h:inputText id ="work_area" value ="#{indexBean.work_area}" 
+                                      validatorMessage=" work area Required">
+                <f:validateLength minimum="2" maximum="20"/>
+            </h:inputText><br/>
+            </h:panelGrid>
+            <br/>
+            <h:commandButton value="Add" action ="#{indexBean.insertuser}"/>
+            <br/>
+            <br/>
+            <h:outputLabel value ="#{indexBean.message}"/>
+        </h:form>
+
+        <h:form id ="getList">
+                <h3>DFM User List<br/></h3>
+                <h:commandButton value="Get List" action="#{indexBean.retrieveuser}"/>
+                <br/>
+
+                <h:dataTable value = "#{indexBean.users}" var="user" border="1" cellpadding="4">
+
+                    <h:column>
+                        <f:facet name ="header"><h:outputText value ="User Name"/></f:facet>
+                        #{user.user_name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name ="header"><h:outputText value ="Granted by"/></f:facet>
+                        #{user.granted_by}
+                    </h:column>
+                    <h:column><f:facet name ="header"><h:outputText value ="Users Role"/></f:facet>
+                        #{user.users_role}
+                    </h:column>
+                    <h:column><f:facet name ="header"><h:outputText value ="Request Date"/></f:facet>
+                        #{user.request_date}
+                    </h:column>
+                    <h:column><f:facet name ="header"><h:outputText value ="Password"/></f:facet>
+                        #{user.password}
+                    </h:column>  
+                    <h:column><f:facet name ="header"><h:outputText value ="Work Area"/></f:facet>
+                        #{user.work_area}
+                    </h:column> 
+                </h:dataTable>            
+            </h:form>
+         </h:panelGrid>
+    </h:body>
+</html>
+
