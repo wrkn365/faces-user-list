@@ -6,7 +6,7 @@ import javax.faces.bean.RequestScoped;
 
 /**
  *
- * @author Dad
+ * @author Jon Janet
  */
 @ManagedBean
 @RequestScoped
